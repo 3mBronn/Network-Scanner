@@ -17,7 +17,8 @@ def get_user_info():
 
 def net_scan(ip):
     arp_request = scapy.ARP(pdst = ip)
-
+    
+    print("[+]Network scanner has started!")
     broadcast = scapy.Ether(dst = "ff:ff:ff:ff:ff:ff")
     combine = broadcast/arp_request
     (answered_list, unanswered_list) = scapy.srp(combine, timeout=1)
@@ -25,7 +26,7 @@ def net_scan(ip):
     answered_list.summary()
 
 
-print("[+]Network scanner has started!")
+
 
 
 user_ip_add = get_user_info()
